@@ -4,6 +4,7 @@ export interface Experience {
   company: string;
   period: string;
   location: string;
+  coverImg?: string;
   points: string[];
 }
 
@@ -16,11 +17,14 @@ export interface ProjectLink {
 export interface Project {
   id: string;
   title: string;
-  category: 'Mobile' | 'Web' | 'AI' | 'Backend';
+  category: 'Mobile' | 'Web' | 'AI' | 'Backend' | 'Web&Mobile';
   description: string;
   techStack: string[];
   points?: string[];
   links?: ProjectLink[];
+  source?: 'company' | 'personal';
+  coverImg?: string;
+  video?: string;
 }
 
 export interface SkillCategory {

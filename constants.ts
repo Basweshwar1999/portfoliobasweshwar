@@ -22,6 +22,7 @@ export const EXPERIENCE_DATA: Experience[] = [
     company: "Botmatic Solution Pvt Ltd",
     period: "Feb 2023 – Present",
     location: "Kharadi, Pune, India",
+    coverImg: new URL('./Assets/botmatic.png', import.meta.url).href,
     points: [
       "Lead the Mobile application team and AI development team.",
       "Successfully developed and deployed four end-to-end mobile applications.",
@@ -38,6 +39,7 @@ export const EXPERIENCE_DATA: Experience[] = [
     company: "Kamjritztex IT Solutions",
     period: "Freelance",
     location: "Kharadi, Pune, India",
+    coverImg: new URL('./Assets/kamjri.png', import.meta.url).href,
     points: [
       "Successfully developed End-to-end application Texsmartly (HRMS and CRM Application).",
       "Optimized app performance of Jdrivex for both platforms, ensuring a seamless user experience."
@@ -60,7 +62,12 @@ export const PROJECTS_DATA: Project[] = [
       { label: "Website", url: "https://myvyay.com/", type: "web" },
       { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.vyay", type: "android" },
       { label: "App Store", url: "https://apps.apple.com/in/app/myvyay/id6474442788", type: "ios" }
-    ]
+    ],
+      coverImg: new URL('./Assets/Videos/myvyay cover image.jpeg', import.meta.url).href,
+      source: 'company',
+          // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+
   },
   {
     id: "cfirst",
@@ -78,7 +85,12 @@ export const PROJECTS_DATA: Project[] = [
         { label: "Android App", url: "https://play.google.com/store/apps/details?id=com.claimmyshares", type: "android" },
         { label: "iOS App", url: "https://apps.apple.com/in/app/cfirst/id6742400738", type: "ios" },
         { label: "Admin Portal", url: "http://13.126.125.20:8088/", type: "admin" }
-    ]
+    ],
+      coverImg: new URL('./Assets/Videos/image.png', import.meta.url).href,
+      source: 'company',
+          // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+
   },
   {
     id: "mybridge",
@@ -95,7 +107,12 @@ export const PROJECTS_DATA: Project[] = [
         { label: "Website", url: "https://mybridgehr.com/", type: "web" },
         { label: "Android App", url: "https://play.google.com/store/apps/details?id=com.mybridgehr", type: "android" },
         { label: "iOS App", url: "https://apps.apple.com/in/app/mybridgehr/id6742400748", type: "ios" }
-    ]
+    ],
+      coverImg: new URL('./Assets/Videos/mybridge.png', import.meta.url).href,
+      source: 'company',
+          // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+
   },
   {
     id: "ai_agents",
@@ -107,8 +124,16 @@ export const PROJECTS_DATA: Project[] = [
       "Developed agents for Data Cleaning, Validation, Data Cubes, and Invoice OCR.",
       "Deployed API projects on IIS server.",
       "Employed C# for server-side logic."
-    ]
+    ],
+    links: [],
+      coverImg: new URL('./Assets/Videos/fintech2.jpg', import.meta.url).href,
+      source: 'company',
+          // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+
+
   },
+  
   {
     id: "blood_bank",
     title: "Blood Bank App",
@@ -118,18 +143,43 @@ export const PROJECTS_DATA: Project[] = [
     points: ["Login access for admin and patients.", "Facilitates blood donation and requests."],
     links: [
         { label: "View Code", url: "https://github.com/Basweshwar1999/Blood-bank-app-project", type: "github" }
-    ]
+    ],
+    coverImg: new URL('./Assets/Videos/blood bank cover image.jpeg', import.meta.url).href,
+    source: 'personal',
+        // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+
   },
   {
     id: "flight_booking",
     title: "Flight Booking App",
     category: "Mobile",
-    description: "Real-time flight booking application.",
+    description: "flight booking application b y using the free API for flight data.",
     techStack: ["React Native", "Hibernate", "JavaScript", "MySQL"],
     points: ["Integrated free API for real-time flight data.", "JSP-based backend for data processing."],
     links: [
         { label: "View Code", url: "https://github.com/Basweshwar1999/BookMyFlight", type: "github" }
-    ]
+    ],
+    coverImg: new URL('./Assets/Videos/flight booking cover image.jpeg', import.meta.url).href,
+    source: 'personal',
+    // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+  },
+   {
+    id: "MyKaryam",
+    title: "Mykaryam Application",
+    category: "Web&Mobile",
+    description: "Real-time Task management application to handle daily tasks.",
+    techStack: ["React Native", "ReactJS", "JavaScript", "MySQL" , ".NET Web API"],
+    points: ["MyKaryam is a task management application that allows users to create, assign, and track tasks in real-time. It features user authentication, task categorization, priority setting, and deadline reminders.", "Users can create, assign, and track tasks in real-time, making it easy to stay organized and on top of their tasks.", "The application includes features such as user authentication, task categorization, priority setting, and deadline reminders, making it a useful tool for managing daily tasks."],
+    links: [
+        { label: "View Code", url: "https://github.com/Basweshwar1999/MyKaryam", type: "github" }
+    ],
+    coverImg: new URL('./Assets/Videos/mykaryam_cover.png', import.meta.url).href,
+    source: 'personal',
+        // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+
   }
 ];
 

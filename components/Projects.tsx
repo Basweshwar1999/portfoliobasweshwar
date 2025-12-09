@@ -4,6 +4,8 @@ import { ExternalLink, Layers, X, ArrowRight, Code2, Github, Globe, Smartphone, 
 import { PROJECTS_DATA } from '../constants';
 import { Project } from '../types';
 
+const projectCover = new URL('../Assets/Videos/myvyay cover image.jpeg', import.meta.url).href;
+
 const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
@@ -29,6 +31,9 @@ const Projects: React.FC = () => {
     }
   };
 
+  const companyProjects = PROJECTS_DATA.filter(p => p.source === 'company');
+  const personalProjects = PROJECTS_DATA.filter(p => p.source === 'personal');
+
   return (
     <section id="projects" className="py-20 bg-darker">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,59 +50,148 @@ const Projects: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PROJECTS_DATA.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-900/20 group flex flex-col cursor-pointer"
-              onClick={() => setSelectedProject(project)}
-            >
-              <div className="h-48 bg-slate-800 relative overflow-hidden group-hover:bg-slate-750 transition-colors">
-                 {/* Abstract geometric pattern for placeholder since no images */}
-                 <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent"></div>
-                 <div className="absolute bottom-0 left-0 p-4 w-full bg-gradient-to-t from-slate-900 to-transparent">
-                    <span className="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full border border-primary/20 backdrop-blur-sm">
-                      {project.category}
-                    </span>
-                 </div>
-                 <div className="absolute top-4 right-4 p-2 bg-slate-900/50 rounded-full text-slate-400 group-hover:text-white transition-colors">
-                    <Layers size={20} />
-                 </div>
+        <div className="space-y-12">
+          {companyProjects.length > 0 && (
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-4"> Worked onCompany Projects</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                {companyProjects.map((project, index) => (
+                  <motion.div
+                    key={project.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08 }}
+                    className="bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-900/20 group flex flex-col cursor-pointer"
+                    onClick={() => setSelectedProject(project)}
+                  >
+                    <div className="h-48 bg-slate-800 relative overflow-hidden group-hover:bg-slate-750 transition-colors">
+                      {/* Background cover image (low opacity) + radial tint overlay */}
+                      <div className='absolute inset-0'>
+                        <div
+                          className="absolute inset-0 bg-center bg-no-repeat bg-contain"
+                          style={{
+                            backgroundImage: `url(${project.coverImg || projectCover})`,
+                            backgroundSize: 'contain',
+                            backgroundRepeat: 'no-repeat',
+                            opacity: 0.60,
+                          }}
+                        />
+                        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent"></div>
+                      </div>
+                      <div className="absolute  bottom-0 left-0 p-4 w-full bg--to-t from-slate-900 to-transparent">
+                        <span className="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full border border-primary/20 backdrop-blur-sm">
+                          {project.category}
+                        </span>
+                      </div>
+                      <div className="absolute top-4 right-4 p-2 bg-slate-900/50 rounded-full text-slate-400 group-hover:text-white transition-colors">
+                        <Layers size={20} />
+                      </div>
+                    </div>
+
+                    <div className="p-6 flex-1 flex flex-col">
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-slate-400 text-sm mb-4 flex-1 line-clamp-3">
+                        {project.description}
+                      </p>
+
+                      <div className="mb-6">
+                        <div className="flex flex-wrap gap-2">
+                          {project.techStack.slice(0, 4).map((tech) => (
+                            <span key={tech} className="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded border border-slate-700">
+                              {tech}
+                            </span>
+                          ))}
+                          {project.techStack.length > 4 && (
+                            <span className="text-xs text-slate-500 px-2 py-1">+ {project.techStack.length - 4}</span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div
+                        className="inline-flex items-center text-sm font-medium text-primary hover:text-emerald-300 transition-colors mt-auto group/btn w-fit"
+                      >
+                        View Details <ArrowRight size={14} className="ml-1 transform group-hover/btn:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
+            </div>
+          )}
 
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-slate-400 text-sm mb-4 flex-1 line-clamp-3">
-                  {project.description}
-                </p>
+          {personalProjects.length > 0 && (
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-4">Personal Projects</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {personalProjects.map((project, index) => (
+                  <motion.div
+                    key={project.id}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08 }}
+                    className="bg-card rounded-xl overflow-hidden border border-slate-700 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-900/20 group flex flex-col cursor-pointer"
+                    onClick={() => setSelectedProject(project)}
+                  >
+                    <div className="h-48 bg-slate-800 relative overflow-hidden group-hover:bg-slate-750 transition-colors">
+                      {/* Background cover image (low opacity) + radial tint overlay */}
+                      <div className='absolute inset-0'>
+                        <div
+                          className="absolute inset-0 bg-center bg-no-repeat bg-contain"
+                          style={{
+                            backgroundImage: `url(${project.coverImg || projectCover})`,
+                            backgroundSize: 'contain',
+                            backgroundRepeat: 'no-repeat',
+                            opacity: 0.60,
+                          }}
+                        />
+                        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary to-transparent"></div>
+                      </div>
+                      <div className="absolute  bottom-0 left-0 p-4 w-full bg--to-t from-slate-900 to-transparent">
+                        <span className="inline-block px-3 py-1 bg-primary/20 text-primary text-xs font-bold rounded-full border border-primary/20 backdrop-blur-sm">
+                          {project.category}
+                        </span>
+                      </div>
+                      <div className="absolute top-4 right-4 p-2 bg-slate-900/50 rounded-full text-slate-400 group-hover:text-white transition-colors">
+                        <Layers size={20} />
+                      </div>
+                    </div>
 
-                <div className="mb-6">
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.slice(0, 4).map((tech) => (
-                      <span key={tech} className="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded border border-slate-700">
-                        {tech}
-                      </span>
-                    ))}
-                    {project.techStack.length > 4 && (
-                      <span className="text-xs text-slate-500 px-2 py-1">+ {project.techStack.length - 4}</span>
-                    )}
-                  </div>
-                </div>
+                    <div className="p-6 flex-1 flex flex-col">
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
+                      <p className="text-slate-400 text-sm mb-4 flex-1 line-clamp-3">
+                        {project.description}
+                      </p>
 
-                <div
-                  className="inline-flex items-center text-sm font-medium text-primary hover:text-emerald-300 transition-colors mt-auto group/btn w-fit"
-                >
-                  View Details <ArrowRight size={14} className="ml-1 transform group-hover/btn:translate-x-1 transition-transform" />
-                </div>
+                      <div className="mb-6">
+                        <div className="flex flex-wrap gap-2">
+                          {project.techStack.slice(0, 4).map((tech) => (
+                            <span key={tech} className="text-xs text-slate-300 bg-slate-800 px-2 py-1 rounded border border-slate-700">
+                              {tech}
+                            </span>
+                          ))}
+                          {project.techStack.length > 4 && (
+                            <span className="text-xs text-slate-500 px-2 py-1">+ {project.techStack.length - 4}</span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div
+                        className="inline-flex items-center text-sm font-medium text-primary hover:text-emerald-300 transition-colors mt-auto group/btn w-fit"
+                      >
+                        View Details <ArrowRight size={14} className="ml-1 transform group-hover/btn:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
               </div>
-            </motion.div>
-          ))}
+            </div>
+          )}
         </div>
       </div>
 
