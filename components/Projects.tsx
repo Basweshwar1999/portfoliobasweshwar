@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Layers, X, ArrowRight, Code2, Github, Globe, Smartphone, LayoutDashboard } from 'lucide-react';
+import { ExternalLink, Layers, X, ArrowRight, Code2, Github, Globe, Smartphone, LayoutDashboard, Play } from 'lucide-react';
 import { PROJECTS_DATA } from '../constants';
 import { Project } from '../types';
 
@@ -33,6 +33,41 @@ const Projects: React.FC = () => {
 
   const companyProjects = PROJECTS_DATA.filter(p => p.source === 'company');
   const personalProjects = PROJECTS_DATA.filter(p => p.source === 'personal');
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  const getEmbedUrl = (url?: string) => {
+    if (!url) return null;
+    try {
+      const u = new URL(url);
+      if (u.hostname.includes('drive.google.com')) {
+        const m = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+        if (m && m[1]) return `https://drive.google.com/file/d/${m[1]}/preview`;
+        const id = u.searchParams.get('id');
+        if (id) return `https://drive.google.com/file/d/${id}/preview`;
+      }
+      if (u.hostname.includes('youtube.com') || u.hostname.includes('youtu.be')) {
+        const vid = u.searchParams.get('v') || (u.pathname.split('/').pop() || null);
+        if (vid) return `https://www.youtube.com/embed/${vid}?autoplay=1&mute=1`;
+      }
+      return url;
+    } catch (e) {
+      return url;
+    }
+  };
+
+  useEffect(() => {
+    if (!videoRef.current) return;
+    const v = videoRef.current;
+    if (selectedProject && selectedProject.video) {
+      const playPromise = v.play();
+      if (playPromise && typeof playPromise.then === 'function') {
+        playPromise.catch(() => {});
+      }
+    } else {
+      v.pause();
+      v.currentTime = 0;
+    }
+  }, [selectedProject]);
 
   return (
     <section id="projects" className="py-20 bg-darker">
@@ -53,7 +88,7 @@ const Projects: React.FC = () => {
         <div className="space-y-12">
           {companyProjects.length > 0 && (
             <div>
-              <h3 className="text-2xl font-semibold text-white mb-4"> Worked onCompany Projects</h3>
+              <h3 className="text-2xl font-semibold text-white mb-4"> Worked on Company Projects</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
                 {companyProjects.map((project, index) => (
                   <motion.div
@@ -217,12 +252,30 @@ const Projects: React.FC = () => {
               {/* Modal Header */}
               <div className="relative h-32 md:h-40 bg-slate-800 overflow-hidden shrink-0">
                 <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary to-transparent"></div>
-                <button 
-                  onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 p-2 bg-black/20 hover:bg-black/40 text-white rounded-full backdrop-blur-md transition-colors z-10"
-                >
-                  <X size={20} />
-                </button>
+                <div className="absolute top-4 right-4 flex items-center gap-2 z-10">
+                  {selectedProject?.video && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        const embed = getEmbedUrl(selectedProject.video);
+                        // open embed (Drive preview or YouTube) or raw video in new tab
+                        const urlToOpen =  selectedProject.video;
+                        window.open(urlToOpen, '_blank', 'noopener');
+                      }}
+                      className="inline-flex items-center gap-2 px-3 py-2 bg-primary text-darker rounded-full text-sm font-medium hover:bg-emerald-400 transition-colors"
+                    >
+                      <Play size={16} />
+                      <span>Play Demo</span>
+                    </button>
+                  )}
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="p-2 bg-black/20 hover:bg-black/40 text-white rounded-full backdrop-blur-md transition-colors"
+                    aria-label="Close modal"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
                 <div className="absolute bottom-4 left-6 md:left-8 right-16">
                    <div className="flex flex-wrap gap-2 mb-2">
                      <span className="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary uppercase bg-black/40 rounded-full border border-primary/20 backdrop-blur-sm">

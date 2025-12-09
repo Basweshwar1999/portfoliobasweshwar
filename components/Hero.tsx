@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '../constants';
-
+import profilePic from '../Assets/Rutik/rutik.png';
 const Hero: React.FC = () => {
   const handlePrint = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -53,13 +53,13 @@ const Hero: React.FC = () => {
               >
                 View Projects <ArrowRight className="ml-2 h-4 w-4" />
               </a>
-              <a 
+              {/* <a 
                 href="#"
                 onClick={handlePrint}
                 className="inline-flex items-center justify-center px-6 py-3 border border-slate-700 text-base font-medium rounded-lg text-slate-300 bg-slate-800/50 hover:bg-slate-800 transition-all hover:border-slate-600"
               >
                 Save as PDF <Download className="ml-2 h-4 w-4" />
-              </a>
+              </a> */}
             </div>
 
             <div className="mt-8 flex items-center justify-center md:justify-start gap-6">
@@ -88,7 +88,10 @@ const Hero: React.FC = () => {
               {/* Abstract Profile Placeholder using CSS since no image provided */}
               <div className="absolute inset-0 bg-gradient-to-tr from-primary to-secondary rounded-full opacity-20 blur-2xl animate-pulse"></div>
               <div className="absolute inset-4 bg-slate-800 rounded-full flex items-center justify-center border-4 border-slate-700 overflow-hidden">
-                 <span className="text-6xl font-bold text-slate-600 select-none">BG</span>
+                 <span className="text-6xl font-bold text-slate-600 select-none">
+                  <img src={profilePic} alt="cover" className="w-full h-full object-cover rounded-full" />
+
+                 </span>
               </div>
               
               {/* Floating Tech Badges */}

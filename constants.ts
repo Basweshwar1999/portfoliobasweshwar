@@ -65,8 +65,8 @@ export const PROJECTS_DATA: Project[] = [
     ],
       coverImg: new URL('./Assets/Videos/myvyay cover image.jpeg', import.meta.url).href,
       source: 'company',
-          // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
-    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+          video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    // video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
 
   },
   {
@@ -88,8 +88,8 @@ export const PROJECTS_DATA: Project[] = [
     ],
       coverImg: new URL('./Assets/Videos/image.png', import.meta.url).href,
       source: 'company',
-          // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
-    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+      video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    // video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
 
   },
   {
@@ -110,8 +110,8 @@ export const PROJECTS_DATA: Project[] = [
     ],
       coverImg: new URL('./Assets/Videos/mybridge.png', import.meta.url).href,
       source: 'company',
-          // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
-    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+          video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    // video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
 
   },
   {
@@ -128,8 +128,8 @@ export const PROJECTS_DATA: Project[] = [
     links: [],
       coverImg: new URL('./Assets/Videos/fintech2.jpg', import.meta.url).href,
       source: 'company',
-          // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
-    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+          video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    // video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
 
 
   },
@@ -146,8 +146,8 @@ export const PROJECTS_DATA: Project[] = [
     ],
     coverImg: new URL('./Assets/Videos/blood bank cover image.jpeg', import.meta.url).href,
     source: 'personal',
-        // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
-    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+        video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    // video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
 
   },
   {
@@ -162,8 +162,8 @@ export const PROJECTS_DATA: Project[] = [
     ],
     coverImg: new URL('./Assets/Videos/flight booking cover image.jpeg', import.meta.url).href,
     source: 'personal',
-    // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
-    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+    video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    // video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
   },
    {
     id: "MyKaryam",
@@ -177,8 +177,8 @@ export const PROJECTS_DATA: Project[] = [
     ],
     coverImg: new URL('./Assets/Videos/mykaryam_cover.png', import.meta.url).href,
     source: 'personal',
-        // video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
-    video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
+        video: "https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing"
+    // video: new URL('https://drive.google.com/file/d/1HWbPtSgKlPcOy9w9zjgg35Vyq2ISPwZj/view?usp=sharing', import.meta.url).href
 
   }
 ];
